@@ -1,0 +1,8 @@
+---
+
+resources:
+  - task-verify-source-code.yaml
+  - task-syft-sbom.yaml
+  - task-acs-image-check.yaml
+  - task-acs-image-scan.yaml
+  - pipeline-security-qe-golden-path.yaml

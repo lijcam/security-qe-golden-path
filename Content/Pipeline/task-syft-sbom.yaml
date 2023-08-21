@@ -1,0 +1,25 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: generate-sbom
+  labels:
+    app.kubernetes.io/version: "0.1"
+  annotations:
+    tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Security
+    tekton.dev/tags: CLI, syft
+    tekton.dev/displayName: syft
+    tekton.dev/platforms: "linux/amd64,linux/arm64,linux/ppc64le,linux/390x"
+spec:
+  description: >-
+   CLI tool and library for generating a Software Bill of Materials from container images and filesystems
+  params:
+    - name: image
+      description: Image to scan.
+      type: string
+  steps:
+    - image: docker.io/anchore/syft:v0.86.1
+      name: syft
+      args:
+        - "$(params.image)"
