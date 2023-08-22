@@ -5,7 +5,7 @@ metadata:
   namespace: security-qe-golden-path
 secrets:
   - name: image-registry-secret
-  - name: rox-central-endpoint
-  - name: rox-api-token
+  - name: stackrox-endpoint
+  - name: stackrox-secret
 imagePullSecrets:
   - name: image-registry-secret
