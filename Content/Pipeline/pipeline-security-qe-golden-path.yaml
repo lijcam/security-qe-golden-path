@@ -144,6 +144,14 @@ spec:
     taskRef:
       kind: Task
       name: generate-sbom
+  - name: post-results-security-quality-gate
+    runAfter:
+    - acs-image-check
+    - acs-image-scan
+    - generate-sbom
+    taskRef:
+      kind: Task
+      name: security-gate-submit
 
 #  - name: update-dev-manifest
 #    params:

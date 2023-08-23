@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: security-gate-submit
+spec:
+  description: Mock task to submit security related artefacts to security quality gate.
+  steps:
+    - image: registry.access.redhat.com/ubi8/ubi-minimal
+      name: submit-reports
+      script: |
+        #!/usr/bin/env bash
+        echo Submitting security reports
+        sleep $((RANDOM % 10 + 1))
+        echo ...complete HTTP200
