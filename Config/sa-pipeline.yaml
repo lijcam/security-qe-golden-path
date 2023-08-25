@@ -2,7 +2,6 @@ kind: ServiceAccount
 apiVersion: v1
 metadata:
   name: pipeline
-  namespace: security-qe-golden-path
 secrets:
   - name: image-registry-secret
   - name: stackrox-endpoint
